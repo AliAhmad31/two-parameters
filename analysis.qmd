@@ -1,0 +1,26 @@
+---
+title: "Two-Parameters"
+author: "Ali Ahmad"
+format: html
+execute: 
+  echo: false
+---
+
+```{r}
+#| message: false
+library(tidyverse)
+library(primer.data)
+```
+
+
+```{r}
+set.seed(10)
+
+x <- nhanes |>
+  filter(age >= 18 & age <= 27) |>
+  select(height, sex) |>
+  drop_na() |>
+  slice_sample(n = 50) 
+```
+
+Human characteristics like height vary for many reasons, including biological traits such as sex. Using publicly available data from the 2017–2020 NHANES study, which includes thousands of U.S. adults, we explore the average height of recruits aged 18 to 27.
